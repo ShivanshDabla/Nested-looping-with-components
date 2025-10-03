@@ -1,16 +1,19 @@
-# React + Vite
+🔁 What is nested looping?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nested looping in React means rendering lists inside lists — e.g., a list of colleges where each college has a list of departments or schools. You typically use JavaScript array iteration (map, flatMap, forEach, recursive functions) within JSX to produce nested DOM elements.
 
-Currently, two official plugins are available:
+✅ Best practices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use .map() for declarative rendering inside JSX.
 
-## React Compiler
+Always set a stable key prop (avoid array index keys when possible).
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Extract nested structures into small components for readability.
 
-## Expanding the ESLint configuration
+Use useMemo to avoid recomputing derived lists on every render (for large data).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+For very large nested lists, consider virtualization (e.g., react-window).
+
+When data is recursive (trees), implement a recursive component.
+
+Keep markup semantic and accessible (ul, li, headings, aria-* where needed).
